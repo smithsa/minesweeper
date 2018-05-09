@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Sade's Minesweeper</title>	
+	<script type="text/javascript" src="js/jquery-2.0.2.min.js"></script>
+	<script type="text/javascript" src="js/minesweeper.js"></script>
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript">
+		$( document ).ready(function() {
+			var x = 8;
+			var y = 8;
+			var mines = 10;
+			var grid = create_new_game(x,y,mines);
+			$( ".tile" ).on("click", function() {
+				if(is_game_over){
+					return false;
+				}
+			  	var x = $(this).attr('id')[2];
+			  	var y = $(this).attr('id')[0];
+			  	if(grid[y][x].get_selected_status() == false){
+			  		grid = open_tile(x, y, grid);
+			  	}
+				else{
+						return false;
+				}
+		 	});	
+			$("#restart").on("click", function() {
+					location.reload();
+			});	
+			$("#hint").on("click", function() {
+					reveal_hint();
+			});		
+		});	
+	</script>
+</head>
+<body>
+<div id="container">
+ <h1 id="header-tile">Minesweeper</h1>
+<div id="game-board">
+
+</div>
+
+<a id="restart" class="button" href="javascript:void(0)">Restart Game</a>
+<a id="hint" class="button" href="javascript:void(0)">Hint</a>
+<audio controls id="win-audio"  class="audio">
+  <source  src="audio/Street Fighter II-You Win Perfect.ogg" type="audio/ogg">
+  <source   src="audio/Street Fighter II-You Win Perfect.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<audio con
+<audio controls id="mine-audo"  class="audio">
+  <source src="audio/bomb.ogg" type="audio/ogg">
+  <source  src="audio/bomb.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+<audio controls id="lose-audio"  class="audio">
+  <source src="audio/You Get Nothing!.ogg" type="audio/ogg">
+  <source  src="audio/You Get Nothing!.mp3" type="audio/mpeg">
+  Your browser does not support the audio tag.
+</audio>
+</div>
+ 
+</body>
+</html>
+
+
