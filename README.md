@@ -31,4 +31,5 @@ A JavaScript implementation of the game Minesweeper, a single player puzzle game
 ## License
 
 [No Rights Reserved](https://creativecommons.org/publicdomain/zero/1.0/)
+
 [Free and unencumbered software released into the public domain.](http://unlicense.org/UNLICENSE)
